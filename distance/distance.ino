@@ -20,36 +20,14 @@ void setup(){
 void loop(){
   Wire.beginTransmission(8);
   x = calcDist1();
-  delay(50);
+  delay(10);
   y = calcDist2();
-  delay(50);
+  delay(10);
   Wire.write(x);
   Wire.write(y);
   Wire.endTransmission();
-  delay(50);
-//  calcDist1();
-//  delay(100);
-//  calcDist2();
-//  delay(100);
+  delay(10);
 }
-
-//void setup() {
-//  Wire.begin(); // join i2c bus (address optional for master)
-//  Serial.begin(9600);
-//  pinMode(trigPin1, OUTPUT);
-//  pinMode(echoPin1, INPUT);
-//}
-
-//void loop() {
-//  Wire.beginTransmission(8); // transmit to device #8
-//  Wire.write("x is ");        // sends five bytes
-//  //long x = calcDist1();
-//  //Serial.println(x);
-//  Wire.write(x);              // sends one byte
-//  Wire.endTransmission();    // stop transmitting
-//  x++;
-//  delay(500);
-//}
 
 long calcDist2(){
   digitalWrite(trigPin2, LOW);
