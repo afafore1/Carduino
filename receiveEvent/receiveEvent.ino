@@ -7,7 +7,7 @@ const int motor2 = 13;
 const int motor2B = 8;
 const int motor2Speed = 11;
 
-const int block = 40;
+const int block = 30;
 const int block2 = 11;
 
 const int speedRate = 125;
@@ -28,26 +28,50 @@ void setup() {
 
 void loop() {
   delay(10);
-  if (x > block || y > block) {
-    if(x > block && y > block){
-      forward(speedRate);
-    }
-    else if( x > y){
+  while(x > block && y > block){
+    forward(speedRate);
+  }
+  if(x > block2 && y > block2){
+    if(x > y){
       left(1);
-    }else
+    }else{
       right(1);
-  } 
-  else if (x != 0 && x < block2 || y != 0 && y < block2) {
+    }
+  }else{
     brake();
-    while (x < block || y < block) {
-      if(x > y){
-        left(0);
-      }else{
+    delay(800);
+    int space = 23;
+    while(x < space || y < space){
+      if(x > y || x == y){
         right(0);
+      }else{
+        left(0);
       }
     }
-  } else if (x == 0 && y == 0) {
   }
+
+
+  
+//  if (x > block || y > block) {
+//    if(x > block && y > block){
+//      forward(speedRate);
+//    }
+//    else if( x > y){
+//      left(1);
+//    }else
+//      right(1);
+//  } 
+//  else if (x != 0 && x < block2 || y != 0 && y < block2) {
+//    brake();
+//    while (x < block || y < block) {
+//      if(x > y){
+//        left(0);
+//      }else{
+//        right(0);
+//      }
+//    }
+//  } else if (x == 0 && y == 0) {
+//  }
 }
 
 // function that executes whenever data is received from master
