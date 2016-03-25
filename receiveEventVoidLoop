@@ -1,0 +1,23 @@
+void loop() {
+  delay(10);
+  while(x > block && y > block){ //block = 30
+    forward(speedRate);
+  }
+  while((x > block2 && x < block) && (y < block && y > block2)){ //
+    if(x > y){
+      left(1);
+    }else{
+      right(1);
+    }
+  }
+    brake();
+    delay(800);
+    int space = 14;
+    while(x < space && y < space){
+      if(y > x){
+        right(0);
+      }else (x > y){
+        left(0);
+      }
+    }
+  }
